@@ -1,7 +1,6 @@
 import socket
 import os
 
-# Папка для збереження файлів
 SAVE_DIR = "uploaded_files"
 if not os.path.exists(SAVE_DIR):
     os.makedirs(SAVE_DIR)
@@ -13,7 +12,6 @@ server.listen(1)
 print("Сервер прийому файлів чекає на клієнта...")
 
 conn, addr = server.accept()
-# Спочатку отримуємо ім'я файлу
 file_name = conn.recv(1024).decode('utf-8')
 file_path = os.path.join(SAVE_DIR, file_name)
 
